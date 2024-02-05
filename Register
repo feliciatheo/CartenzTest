@@ -1,0 +1,18 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://internal.citigov.id/signin');
+  await page.getByText('Daftar Sekarang').click();
+  await page.getByPlaceholder('Masukkan nama lengkap').fill('Felicia');
+  await page.getByPlaceholder('Masukkan email').click();
+  await page.getByPlaceholder('Masukkan email').fill('feliciatheoo@gmail.com');
+  await page.getByPlaceholder('Masukkan nomor telepon /').click();
+  await page.getByPlaceholder('Masukkan nomor telepon /').fill('81262430844');
+  await page.getByPlaceholder('Kata sandi', { exact: true }).click();
+  await page.getByPlaceholder('Kata sandi', { exact: true }).fill('Feli102002.');
+  await page.getByPlaceholder('Konfirmasi Kata sandi').click();
+  await page.getByPlaceholder('Konfirmasi Kata sandi').fill('Feli102002.');
+  await page.getByRole('button', { name: 'Daftar' }).click();
+  await page.getByRole('button', { name: 'Selanjutnya' }).click();
+  await page.getByRole('button', { name: 'Verifikasi' }).click();
+});
